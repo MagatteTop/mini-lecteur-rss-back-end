@@ -16,8 +16,8 @@ class ApiController extends AbstractController
      */
     public function index(ManagerRegistry $registry): Response
     {
-          $rss = simplexml_load_file("http://localhost/en_continu.xml");
-//          $rss = simplexml_load_file("https://www.lemonde.fr/rss/en_continu.xml");
+//          $rss = simplexml_load_file("http://localhost/en_continu.xml");
+          $rss = simplexml_load_file("https://www.lemonde.fr/rss/en_continu.xml");
           $repository=new ArticleRepository($registry);
           foreach ($rss->channel->item as $item) {
             $article = new Article();
